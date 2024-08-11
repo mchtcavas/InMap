@@ -1,0 +1,67 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8070
+    description: Generated server url
+paths:
+  /api/nearby:
+    get:
+      tags:
+        - nearby-resource
+      operationId: getNearby
+      parameters:
+        - name: longitude
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: latitude
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: radius
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NearbyDto'
+components:
+  schemas:
+    NearbyDto:
+      type: object
+      properties:
+        name:
+          type: string
+        icon:
+          type: string
+        rating:
+          type: integer
+          format: int32
+        photos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Photo'
+        user_ratings_total:
+          type: integer
+          format: int32
+    Photo:
+      type: object
+      properties:
+        html_attributions:
+          type: array
+          items:
+            type: string

@@ -20,3 +20,27 @@ spring:
 
 server:
   port: 8070
+
+logging:
+  level:
+    com.mchtcavas.InMap: DEBUG
+    root: INFO
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+application:
+  nearby-template:
+    # key: google
+    key: mock
+  google:
+    api:
+      base-url: https://maps.googleapis.com/maps/api/place/nearbysearch/json
+      key: YOUR_API_KEY
+  mock:
+    api:
+      base-url: https://mocki.io/v1/120a45f3-0643-4ae7-b035-436d6c5dca7c
+

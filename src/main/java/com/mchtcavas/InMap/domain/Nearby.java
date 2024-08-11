@@ -11,7 +11,7 @@ public class Nearby {
     private Long latitude;
     private Long radius;
     @Column(columnDefinition = "LONGTEXT")
-    private String result;
+    private String response;
 
     public Long getId() {
         return id;
@@ -45,12 +45,12 @@ public class Nearby {
         this.radius = radius;
     }
 
-    public String getResult() {
-        return result;
+    public String getResponse() {
+        return response;
     }
 
-    public void setResult(String result) {
-        this.result = result;
+    public void setResponse(String response) {
+        this.response = response;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class Nearby {
                 ", longitude=" + longitude +
                 ", latitude=" + latitude +
                 ", radius=" + radius +
-                ", result='" + result + '\'' +
+                ", result='" + response + '\'' +
                 '}';
     }
 }
